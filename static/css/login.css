@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+ 
+    background: url(Images/joshua-woroniecki-lzh3hPtJz9c-unsplash.jpg);
+    background-size: cover;
+
+}
+.box{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgb(23, 23, 197);
+
+    text-align: center;
+}
+.box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.box input[type = "text"] ,.box input[type = "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+
+}
+.box input[type = "text"]:focus ,.box input[type = "password"]:focus{
+    width: 280px;
+    border-color: #2ecc71;
+
+}
+.box input[type= "submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type= "submit"]:hover{
+background: #2ecc71;
+}
+.title {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+.box input[type="back"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #e21c15;
+    padding: 10px 5px;
+    width: 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type= "back"]:hover{
+    background: #2ecc71;
+    border-color: #2ecc71;
+    }
+.box button[type="HOME"]{
+
+    border: 2px solid white;
+    padding: 10px 5px;
+    width: 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.HOME{
+    position: absolute;
+    left: 48%;
+    font-family: sans-serif;
+    text-decoration: none;
+    margin: 10px auto;
+    text-align: center;
+    display: inline-flex;
+    padding: 4px 9px;
+    color: #2ecc71;
+    border: 2px solid #e66767;
+    border-radius: 8px;
+    transition: .3s linear;
+    cursor: pointer;
+    background-color: #e21c15;
+}
+.HOME a{
+    color: white;
+    width: 60px;
+    font-size: 14px;
+    transition: .3s linear;
+    text-decoration: none;
+}
+.HOME a:hover{
+    background: #2ecc71;
+    color: white;
+}
+.HOME:hover{
+    border-color: #2ecc71;
+    background-color: #2ecc71;
+}

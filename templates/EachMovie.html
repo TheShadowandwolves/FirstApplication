@@ -1,0 +1,191 @@
+  <!--doctype html-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--==Title==================================-->
+<title>Movie Name - MHD</title>
+<!--Stylesheet(CSS)==========================-->
+<link rel="stylesheet" href="CSS/movieLibrary.css"/>
+<link rel="stylesheet" href="index.css"/>
+<!--==Fav-icon===============================-->
+<link rel="shortcut icon" href="images/fav-icon.png"/>
+<!--==Import-poppins-font====================-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--==Import-Monoton-Font====================-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<!--==Using-Font-Awesome======================-->
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--==Scroll-Progress-bar=========================-->
+    <div id="progress">
+        <span id="progress-value"></span>
+    </div>
+    <!--==Navigation===================================-->
+    <header class="main-header">
+        <nav class="nav main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Project.html">PROJECT</a></li>
+                <li><a href="ABOUT.html">ABOUT</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="Terms&Conditions.html">Terms&Conditions</a></li>
+
+            </ul>
+        </nav>
+        <h1 class="Titlename Titlename-large">Movie Name</h1>
+        <form action="" class="search-box">
+            <!--input-->
+              <input type="text" name="search" placeholder="Search" class="search-input" required/>
+               <button type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+    </header>
+    <!--nav-end-->
+    <!--==Movie-Banner=========================================-->
+    <section class="movie-banner">
+        <!--==img==================================-->
+        <div class="m-banner-img">
+            <img alt="" src="Movie-Data/Pirates-of-the-Caribbean-Salazar&#39;s-Revenge/cover.jpg">
+        </div>
+        <!--content================================-->
+        <div class="banner-container">
+            <!--title-container*******************----->
+            <div class="title-container">
+                <!--title-top===============-->
+                <div class="title-top">
+                <!--title----->
+                <div class="movie-title">
+                    <h1>Movie Name</h1>
+                </div>
+                <!--more-about-movie-->
+                <div class="more-about-movie">
+                    <span class="quality">Full HD</span>
+                    <div class="rating">
+                        Rating <img alt="imbd" src="images/IMDb-icon.png">
+                    </div>
+                    <span>Publish Date</span>
+                    <span>Movie Time</span>
+                </div>
+                <!--language--------->
+                <div class="language">
+                    <span>Trailer Language</span>
+                    <span>...</span>
+                </div>
+                </div>
+                <!--Title-botttom==========================-->
+                <div class="title-bottom">
+                    <!--category------->
+                    <div class="category">
+                        <strong>Category</strong><br/>
+                        <a href="#">category1</a>,<a href="#">category2</a>,<a href="#">category3</a>
+                    </div>
+                    <!--trailer-btn---->
+                 <!----  <a href="#" class="watch-btn">Watch Trailer</a>-->
+                </div>
+            </div>
+            <!--play-btn******************************--->
+            <div class="play-btn-container">
+                <div class="play-btn">
+                    <a href="javascript:void">
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </div>
+            <!--Video/full-Movie***************************-->
+            <div id="play" class="play">
+                <!--close-btn--->
+                <a href="javascript:void" class="close-movie">
+                    <i class="fas fa-times"></i>
+                </a>
+                <!--movie------->
+                <div class="play-movie">
+                   <a href="#" class="watch-btn"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Banner-end------------->
+    <!--details=====================================-->
+    <section class="movie-details">
+        <strong>Movie Title</strong>
+        <p>Here will be the description</p>
+    </section>
+    <!--==ScreenShots===============================-->
+    <section class="screenshots">
+        <strong>ScreenShots</strong>
+        <!--screenshots-container----------->
+        <div class="screen-s-container">
+            <img alt="" src="#">
+
+        </div>
+    </section>
+ 
+    <!--==footer==============================-->
+            <footer class="main-footer">
+
+            <div class="container main-footer-container">
+
+                <a class="Titlename logolink" href="index.html">The Inner reviewers</a>
+
+            <ul class="nav footer-nav">
+                <li>
+                    <a href="https://open.spotify.com/user/r3tkxwdgfyujecn4ueta24hqr" target="_blank"><img src="Images/Spotify Logo.png" width="30" height="30"></a></li>
+                <li><a href="https://www.instagram.com/theshadowandwolves/" target="_blank"><img src="Images/insta.png" width="30" height="30"></a></li>
+                <li><a href= "https://www.youtube.com/channel/UCV9AeIYOw3CiRO9irw5lJ-g" target="_blank"><img src="Images/YouTube Logo.png" width="30" height="30"></a></li>
+                <li><a href= "https://www.facebook.com/leo.blam.31/" target="_blank"><img src="Images/Facebook Logo.png" width="30" height="30"></a></li>
+            </ul>
+
+          </div>
+
+          </footer>
+
+    <!--==jQuery=======================================-->
+    <script src="js/jQuery.js"></script>
+    <script>
+        /*==scroll-progress-bar======================*/
+        let scrollPrecentage = () =>{
+            let scrollProgress = document.getElementById("progress");
+            let progressValue = document.getElementById("progress-value");
+            let pos = document.documentElement.scrollTop;
+            let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrollValue = Math.round(pos * 100 / calcHeight);
+            scrollProgress.style.background = `conic-gradient(#e70634 ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        }
+        window.onscroll = scrollPrecentage;
+        window.onload = scrollPrecentage;
+        /*--menu-btn-fixed-when-scroll============*/
+        $(window).scroll(function(){
+            if($(document).scrollTop() > 20){
+                $('.navigation').addClass('fix-icon');
+            }
+            else{
+                $('.navigation').removeClass('fix-icon');
+            }
+        });
+        /*==popup-open==================================*/
+        $(document).on('click','.play-btn a',function(){
+            $('.play').addClass('active-popup');
+        });
+        /*==popup-Close==================================*/
+        $(document).on('click','.close-movie',function(){
+            $('.play').removeClass('active-popup');
+        });
+        /*==auto-play-when-popup-open===================*/
+        $('.play-btn a').click(function(){
+            $('#m-video')[0].play();
+        });
+        /*==Close-video-when-poppup-close==============*/
+        $('.close-movie').click(function(){
+            $('#m-video')[0].pause();
+        });
+      </script>
+</body>
+</html>
+  
