@@ -1,15 +1,14 @@
-  <!--doctype html-->
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
+{% block head %}
 <!--==Title==================================-->
-<title>Movie Name - MHD</title>
+
+<!-- <title>Movie Name - MHD</title> --> 
+
 <!--Stylesheet(CSS)==========================-->
-<link rel="stylesheet" href="CSS/movieLibrary.css"/>
-<link rel="stylesheet" href="index.css"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/movieLibrary.css') }}"/>
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/> -->
 <!--==Fav-icon===============================-->
-<link rel="shortcut icon" href="images/fav-icon.png"/>
+<link rel="shortcut icon" href="{{ url_for('static', filename='Images/The inner reviewers logo wo text 2.png') }}"/>
 <!--==Import-poppins-font====================-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,39 +19,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 <!--==Using-Font-Awesome======================-->
 <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <!--==Scroll-Progress-bar=========================-->
-    <div id="progress">
-        <span id="progress-value"></span>
-    </div>
-    <!--==Navigation===================================-->
-    <header class="main-header">
-        <nav class="nav main-nav">
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="Project.html">PROJECT</a></li>
-                <li><a href="ABOUT.html">ABOUT</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="Terms&Conditions.html">Terms&Conditions</a></li>
+{% endblock %}
 
-            </ul>
-        </nav>
-        <h1 class="Titlename Titlename-large">Movie Name</h1>
-        <form action="" class="search-box">
-            <!--input-->
-              <input type="text" name="search" placeholder="Search" class="search-input" required/>
-               <button type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
-    </header>
-    <!--nav-end-->
+{% block body %}
     <!--==Movie-Banner=========================================-->
     <section class="movie-banner">
         <!--==img==================================-->
         <div class="m-banner-img">
-            <img alt="" src="Movie-Data/Pirates-of-the-Caribbean-Salazar&#39;s-Revenge/cover.jpg">
+            {% block backgroundimage %}
+            <!-- <img alt="" src="#"> -->
+            {% endblock %}
         </div>
         <!--content================================-->
         <div class="banner-container">
@@ -62,21 +38,33 @@
                 <div class="title-top">
                 <!--title----->
                 <div class="movie-title">
-                    <h1>Movie Name</h1>
+                    {% block movieTitle %}
+                    <!-- <h1>Movie Name</h1> -->
+                    {% endblock %}
                 </div>
                 <!--more-about-movie-->
                 <div class="more-about-movie">
-                    <span class="quality">Full HD</span>
+                    {% block quality %}
+                    <!-- <span class="quality">Full HD</span> -->
+                    {% endblock %}
                     <div class="rating">
-                        Rating <img alt="imbd" src="images/IMDb-icon.png">
+                        {% block rating %}
+                        <!-- Rating <img alt="imbd" src="images/IMDb-icon.png"> -->
+                        {% endblock %}
                     </div>
-                    <span>Publish Date</span>
-                    <span>Movie Time</span>
+                    {% block publishdate %}
+                    <!-- <span>Publish Date</span> -->
+                    {% endblock %}
+                    {% block movieTime %}
+                    <!-- <span>Movie Time</span> -->
+                    {% endblock %}
                 </div>
                 <!--language--------->
                 <div class="language">
-                    <span>Trailer Language</span>
-                    <span>...</span>
+                    {% block movieLanguage %}
+                    <!-- <span>Trailer Language</span>
+                    <span>...</span> -->
+                    {% endblock %}
                 </div>
                 </div>
                 <!--Title-botttom==========================-->
@@ -84,7 +72,9 @@
                     <!--category------->
                     <div class="category">
                         <strong>Category</strong><br/>
-                        <a href="#">category1</a>,<a href="#">category2</a>,<a href="#">category3</a>
+                        {% block category %}
+                        <!-- <a href="#">category1</a>,<a href="#">category2</a>,<a href="#">category3</a> -->
+                        {% endblock %}
                     </div>
                     <!--trailer-btn---->
                  <!----  <a href="#" class="watch-btn">Watch Trailer</a>-->
@@ -114,40 +104,24 @@
     <!--Banner-end------------->
     <!--details=====================================-->
     <section class="movie-details">
-        <strong>Movie Title</strong>
-        <p>Here will be the description</p>
+        {% block movieDesc %}
+        <!-- <strong>Movie Title</strong>
+        <p>Here will be the description</p> -->
+        {% endblock %}
     </section>
     <!--==ScreenShots===============================-->
     <section class="screenshots">
         <strong>ScreenShots</strong>
         <!--screenshots-container----------->
         <div class="screen-s-container">
-            <img alt="" src="#">
-
+            {% block screenImg %}
+            <!-- <img alt="" src="#"> -->
+            {% endblock %}
         </div>
     </section>
- 
-    <!--==footer==============================-->
-            <footer class="main-footer">
-
-            <div class="container main-footer-container">
-
-                <a class="Titlename logolink" href="index.html">The Inner reviewers</a>
-
-            <ul class="nav footer-nav">
-                <li>
-                    <a href="https://open.spotify.com/user/r3tkxwdgfyujecn4ueta24hqr" target="_blank"><img src="Images/Spotify Logo.png" width="30" height="30"></a></li>
-                <li><a href="https://www.instagram.com/theshadowandwolves/" target="_blank"><img src="Images/insta.png" width="30" height="30"></a></li>
-                <li><a href= "https://www.youtube.com/channel/UCV9AeIYOw3CiRO9irw5lJ-g" target="_blank"><img src="Images/YouTube Logo.png" width="30" height="30"></a></li>
-                <li><a href= "https://www.facebook.com/leo.blam.31/" target="_blank"><img src="Images/Facebook Logo.png" width="30" height="30"></a></li>
-            </ul>
-
-          </div>
-
-          </footer>
 
     <!--==jQuery=======================================-->
-    <script src="js/jQuery.js"></script>
+    <script src="{{ url_for('static', filename='JS/jQuery.js') }}"></script>
     <script>
         /*==scroll-progress-bar======================*/
         let scrollPrecentage = () =>{
@@ -186,6 +160,5 @@
             $('#m-video')[0].pause();
         });
       </script>
-</body>
-</html>
+{% endblock %}
   

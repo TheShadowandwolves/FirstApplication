@@ -36,6 +36,14 @@ def login():
 def terms():
     return render_template("Terms&Conditions.html")
 
+@app.route("/eachMovie")
+def eachMovie():
+    return render_template("EachMovie.html")
+
+@app.route("/ex")
+def ex():
+    return render_template("example.html")
+
 
 
 app.run(debug=True)
