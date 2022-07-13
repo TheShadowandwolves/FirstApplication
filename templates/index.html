@@ -1,37 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>The Inner reviewers</title>
-        <meta name="description" content="This is the description">
-        <link rel="stylesheet" href='{{ url_for("static", filename="css/index.css") }}'>
-        <link rel="shortcut icon" href='{{ url_for("static", filename="Images/The inner reviewers logo wi text 2.png") }}'>
-        <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+{% extends 'base.html' %}
+{% block head %}
+<title>The Inner reviewers</title>
+{% endblock %}
 
-    </head>
-    <body>
-        <header class="main-header">
-            <nav class="nav main-nav">
-                <ul>
-                    <li><a href='url_for("index")'>HOME</a></li>
-                    <li><a href="Project.html">PROJECT</a></li>
-                    <li><a href="ABOUT.html">ABOUT</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="Terms&Conditions.html">Terms&Conditions</a></li>
+{% block titlePage %}
 
-                </ul>
-            </nav>
-            <h1 class="Titlename Titlename-large">The Inner reviewers</h1>
-            <form action="" class="search-box">
-                <!--input-->
-                  <input type="text" name="search" placeholder="Search" class="search-input" required/>
-                   <button type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
-        </header>
+<h1 class="Titlename Titlename-large">The Inner reviewers</h1>
+
+{% endblock %}
+{% block body %}
+
         <section class="content-section container">
             <h2 class="section-header">What is this?</h2>
-                <img class="about-band-image" src="Images/The inner reviewers logo wo text 2-2.png">
+                <img class="about-band-image" src="static/Images/The inner reviewers logo wo text 2-2.png"/>
                 <p class="p-main">Hi to everyone who is entering this website. <br>
                 This website is a personal project of mine. And is currently in progress! <br>
                 In this project I will list all movie, books, series, games etc. titles on display. The user while loged in, will be able 
@@ -48,7 +29,7 @@
             <div class="video-box">
                 <h2 class="section-header">Give a look</h2>
                 <video class="video" width="600"  controls autoplay muted>
-                    <source src="Videos/theinnerreviewers_Trailer1.mp4" type="video/mp4">
+                    <source src="static/Videos/theinnerreviewers_Trailer1.mp4" type="video/mp4">
                 </video>
             </div>
         </section>
@@ -57,31 +38,17 @@
             <span class="items">
                 <div class="item item-1">
                     <h6 class="title-item">Movies</h6>  
-                   <a class="title-img-link" href="Movies.html"><img class="title-img" src="Images/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg"/> </a>                
+                   <a class="title-img-link" href="{{ url_for('movies') }}"><img class="title-img" src="static/Images/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg"/> </a>                
                 </div>
                 <div class="item item-2">
                     <h6 class="title-item">Series</h6>   
-                    <a class="title-img-link" href="Series.html"><img class="title-img" src="Images/tech-daily-cF6Le-0viHY-unsplash.jpg" /> </a>    
+                    <a class="title-img-link" href="{{ url_for('series') }}"><img class="title-img" src="static/Images/tech-daily-cF6Le-0viHY-unsplash.jpg" /> </a>    
                 </div>
                 <div class="item item-3">
                     <h6 class="title-item">Books</h6> 
-                    <a class="title-img-link" href="Books.html"><img class="title-img" src="Images/gulfer-ergin-LUGuCtvlk1Q-unsplash.jpg" /> </a>      
+                    <a class="title-img-link" href="{{ url_for('books') }}"><img class="title-img" src="static/Images/gulfer-ergin-LUGuCtvlk1Q-unsplash.jpg" /> </a>      
                 </div>
             </span>
         </section>
 
-
-        <footer class="main-footer">
-            <div class="container main-footer-container">
-                <a class="Titlename logolink" href="index.html">The Inner reviewers</a>
-            <ul class="nav footer-nav">
-                <li>
-                    <a href="https://open.spotify.com/user/r3tkxwdgfyujecn4ueta24hqr" target="_blank"><img src="Images/Spotify Logo.png" width="30" height="30"></a></li>
-                <li><a href="https://www.instagram.com/theshadowandwolves/" target="_blank"><img src="Images/insta.png" width="30" height="30"></a></li>
-                <li><a href= "https://www.youtube.com/channel/UCV9AeIYOw3CiRO9irw5lJ-g" target="_blank"><img src="Images/YouTube Logo.png" width="30" height="30"></a></li>
-                <li><a href= "https://www.facebook.com/leo.blam.31/" target="_blank"><img src="Images/Facebook Logo.png" width="30" height="30"></a></li>
-            </ul>
-          </div>
-          </footer>
-    </body>
-</html>
+{% endblock %}

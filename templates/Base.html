@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}{% endblock %}
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='Images/The inner reviewers logo wi text 2.png') }}"/>
+        <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
+                    <li><a href="{{ url_for('project') }}">PROJECT</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('terms') }}">Terms&Conditions</a></li>
+                </ul>
+            </nav>
+            {% block titlePage %}{% endblock %}
+            <form action="" class="search-box">
+                <!--input-->
+                  <input type="text" name="search" placeholder="Search" class="search-input" required/>
+                   <button type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+        </header>
+<body>
+    {% block body %}{% endblock %}
+    <footer class="main-footer">
+        <div class="container main-footer-container">
+        <h3 class="Titlename">The Inner reviewers</h3>
+        <ul class="nav footer-nav">
+            <li>
+                <a href="https://open.spotify.com/user/r3tkxwdgfyujecn4ueta24hqr" target="_blank"><img src="static/Images/Spotify Logo.png" width="30" height="30"></a></li>
+            <li><a href="https://www.instagram.com/theshadowandwolves/" target="_blank"><img src="static/Images/insta.png" width="30" height="30"></a></li>
+            <li><a href= "https://www.youtube.com/channel/UCV9AeIYOw3CiRO9irw5lJ-g" target="_blank"><img src="static/Images/YouTube Logo.png" width="30" height="30"></a></li>
+            <li><a href= "https://www.facebook.com/leo.blam.31/" target="_blank"><img src="static/Images/Facebook Logo.png" width="30" height="30"></a></li>
+        </ul>
+    </div>
+    </footer>
+</body>
+</html>
