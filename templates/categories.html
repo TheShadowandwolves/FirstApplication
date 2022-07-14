@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>{{ category }} Movies</title>
+<meta name="description" content="Here you find all movies, you can sign in to mark of what you watched or want to watch for you later">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/movieLibrary.css') }}" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--==Import-Monoton-Font====================-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<!--==Using-Font-Awesome======================-->
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+{% endblock %}
+
+{% block titlePage %}
+<h1 class="Titlename Titlename-large">{{ category }}</h1>
+{% endblock %}
+
+{% block body %}
+        <section id="main-slider">
+            {% for i in movieindex %}
+                {% if i.category == category %}
+            
+                    <div class="main-slider-box">
+                        <!--overlayer-->
+                        <a href="{{ url_for('eachMovie', i.title) }}" class="main-slider-overlay">
+                            <i class="fas fa-play"></i>
+                        </a>
+                        <!--image for movies, TODO: API for automatic pic set-->
+                        <div class="main-slider-img">
+                            <img src="{{ url_for('eachMovie', i.image) }}" alt="Poster"/>
+                        </div>
+                        <!--quality or anything else... no css-->
+                        <div class="main-slider-text">
+                            <!--missing quality-->
+                            <span class="quality"></span>
+                            <!--bottom text-->
+                            <div class="bottom-text">
+                                <!--name-->
+                                <div class="movie-name">
+                                <!--need to change to automatic change for each movie-->
+                                <span>{{ i.publishdate }}</span>
+                                <strong>{{ i.title }}</strong>
+                            </div>
+                            <div class="category-rating">
+                                <!--category, needs automatic change-->
+                                <div class="category">
+                                    {{ category }}
+                                </div>
+                                <!--rating, same-->
+                                <div class="rating">
+                                    {{ i.rating }} <img src="{{ url_for('static', filename='/Images/IMDb-icon.png') }}" ) }} alt="imbd"/> 
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                {% endif %} 
+            {% endfor %}
+        
+        </section>
+        <!--button for reviewing more, need to be set in backend-->
+        <div class="btn-container">
+            <input type="button" value="VIEW MORE"/>
+            <div class="wdth"></div>
+            <div class="wdth1"></div>
+        </div>
+ {% endblock %}

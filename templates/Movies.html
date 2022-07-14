@@ -1,45 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Movies</title>
-        <meta name="description" content="Here you find all movies, you can sign in to mark of what you watched or want to watch for you later">
-        <link rel="stylesheet" href="index.css"/>
-        <link rel="stylesheet" href="CSS/movieLibrary.css"/>
-        <link rel="shortcut icon" href="Images/The inner reviewers logo wi text 2.png"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <!--==Import-Monoton-Font====================-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-        <!--==Using-Font-Awesome======================-->
-        <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+{% extends 'base.html' %}
+{% block head %}
+<title>Movies</title>
+<meta name="description" content="Here you find all movies, you can sign in to mark of what you watched or want to watch for you later">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/movieLibrary.css') }}" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--==Import-Monoton-Font====================-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<!--==Using-Font-Awesome======================-->
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{% endblock %}
 
+{% block titlePage %}
+<h1 class="Titlename Titlename-large">{{ category }}</h1>
+{% endblock %}
 
-    </head>
-    <body>
-        <header class="main-header">
-            <nav class="nav main-nav">
-                <!--main nav on all platforms-->
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="Project.html">PROJECT</a></li>
-                    <li><a href="ABOUT.html">ABOUT</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="Terms&Conditions.html">Terms&Conditions</a></li>
-                </ul>
-            </nav>
-            <h1 class="Titlename Titlename-large">Movies</h1>
-            <form action="" class="search-box">
-                <!--input-->
-                  <input type="text" name="search" placeholder="Search" class="search-input" required/>
-                   <button type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
-        </header>
+{% block body %}
         <section id="main-slider">
+
             <div class="main-slider-box">
                 <!--overlayer-->
                 <a href="EachMovie.html" class="main-slider-overlay">
@@ -73,185 +54,11 @@
                     </div>
                     </div>
                 </div>
-                
+
 
             </div>
           
-            <div class="main-slider-box">
-                <!--overlayer-->
-                <a href="EachMovie.html" class="main-slider-overlay">
-                    <i class="fas fa-play"></i>
-                </a>
-                <!--image for movies, TODO: API for automatic pic set-->
-                <div class="main-slider-img">
-                    <img src="#" alt="Poster"/>
-                </div>
-                <!--quality or anything else... no css-->
-                <div class="main-slider-text">
-                    <!--missing quality-->
-                    <span class="quality"></span>
-                    <!--bottom text-->
-                    <div class="bottom-text">
-                        <!--name-->
-                        <div class="movie-name">
-                        <!--need to change to automatic change for each movie-->
-                        <span>Year</span>
-                        <strong>Movie Name</strong>
-                    </div>
-                    <div class="category-rating">
-                        <!--category, needs automatic change-->
-                        <div class="category">
-                            <a href="#">category1</a>,<a href="#">category2</a><a href="#">category3</a>
-                        </div>
-                        <!--rating, same-->
-                        <div class="rating">
-                           Rating <img src="Images/IMDb-icon.png" alt="imbd"/> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
 
-            </div>
-            <div class="main-slider-box">
-                <!--overlayer-->
-                <a href="EachMovie.html" class="main-slider-overlay">
-                    <i class="fas fa-play"></i>
-                </a>
-                <!--image for movies, TODO: API for automatic pic set-->
-                <div class="main-slider-img">
-                    <img src="#" alt="Poster"/>
-                </div>
-                <!--quality or anything else... no css-->
-                <div class="main-slider-text">
-                    <!--missing quality-->
-                    <span class="quality"></span>
-                    <!--bottom text-->
-                    <div class="bottom-text">
-                        <!--name-->
-                        <div class="movie-name">
-                        <!--need to change to automatic change for each movie-->
-                        <span>Year</span>
-                        <strong>Movie Name</strong>
-                    </div>
-                    <div class="category-rating">
-                        <!--category, needs automatic change-->
-                        <div class="category">
-                            <a href="#">category1</a>,<a href="#">category2</a><a href="#">category3</a>
-                        </div>
-                        <!--rating, same-->
-                        <div class="rating">
-                           Rating <img src="Images/IMDb-icon.png" alt="imbd"/> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="main-slider-box">
-                <!--overlayer-->
-                <a href="EachMovie.html" class="main-slider-overlay">
-                    <i class="fas fa-play"></i>
-                </a>
-                <!--image for movies, TODO: API for automatic pic set-->
-                <div class="main-slider-img">
-                    <img src="#" alt="Poster"/>
-                </div>
-                <!--quality or anything else... no css-->
-                <div class="main-slider-text">
-                    <!--missing quality-->
-                    <span class="quality"></span>
-                    <!--bottom text-->
-                    <div class="bottom-text">
-                        <!--name-->
-                        <div class="movie-name">
-                        <!--need to change to automatic change for each movie-->
-                        <span>Year</span>
-                        <strong>Movie Name</strong>
-                    </div>
-                    <div class="category-rating">
-                        <!--category, needs automatic change-->
-                        <div class="category">
-                            <a href="#">category1</a>,<a href="#">category2</a><a href="#">category3</a>
-                        </div>
-                        <!--rating, same-->
-                        <div class="rating">
-                           Rating <img src="Images/IMDb-icon.png" alt="imbd"/> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="main-slider-box">
-                <!--overlayer-->
-                <a href="EachMovie.html" class="main-slider-overlay">
-                    <i class="fas fa-play"></i>
-                </a>
-                <!--image for movies, TODO: API for automatic pic set-->
-                <div class="main-slider-img">
-                    <img src="#" alt="Poster"/>
-                </div>
-                <!--quality or anything else... no css-->
-                <div class="main-slider-text">
-                    <!--missing quality-->
-                    <span class="quality"></span>
-                    <!--bottom text-->
-                    <div class="bottom-text">
-                        <!--name-->
-                        <div class="movie-name">
-                        <!--need to change to automatic change for each movie-->
-                        <span>Year</span>
-                        <strong>Movie Name</strong>
-                    </div>
-                    <div class="category-rating">
-                        <!--category, needs automatic change-->
-                        <div class="category">
-                            <a href="#">category1</a>,<a href="#">category2</a><a href="#">category3</a>
-                        </div>
-                        <!--rating, same-->
-                        <div class="rating">
-                           Rating <img src="Images/IMDb-icon.png" alt="imbd"/> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="main-slider-box">
-                <!--overlayer-->
-                <a href="EachMovie.html" class="main-slider-overlay">
-                    <i class="fas fa-play"></i>
-                </a>
-                <!--image for movies, TODO: API for automatic pic set-->
-                <div class="main-slider-img">
-                    <img src="#" alt="Poster"/>
-                </div>
-                <!--quality or anything else... no css-->
-                <div class="main-slider-text">
-                    <!--missing quality-->
-                    <span class="quality"></span>
-                    <!--bottom text-->
-                    <div class="bottom-text">
-                        <!--name-->
-                        <div class="movie-name">
-                        <!--need to change to automatic change for each movie-->
-                        <span>Year</span>
-                        <strong>Movie Name</strong>
-                    </div>
-                    <div class="category-rating">
-                        <!--category, needs automatic change-->
-                        <div class="category">
-                            <a href="#">category1</a>,<a href="#">category2</a><a href="#">category3</a>
-                        </div>
-                        <!--rating, same-->
-                        <div class="rating">
-                           Rating <img src="Images/IMDb-icon.png" alt="imbd"/> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-            </div>
         </section>
         <!--button for reviewing more, need to be set in backend-->
         <div class="btn-container">
@@ -259,24 +66,4 @@
             <div class="wdth"></div>
             <div class="wdth1"></div>
         </div>
-
-        <!--main footer for all plattforms-->
-        <footer class="main-footer">
-
-        <div class="container main-footer-container">
-
-            <a class="Titlename logolink" href="index.html">The Inner reviewers</a>
-            <ul class="nav footer-nav">
-
-            <li>
-                <a href="https://open.spotify.com/user/r3tkxwdgfyujecn4ueta24hqr" target="_blank"><img src="Images/Spotify Logo.png" width="30" height="30"></a></li>
-            <li><a href="https://www.instagram.com/theshadowandwolves/" target="_blank"><img src="Images/insta.png" width="30" height="30"></a></li>
-            <li><a href= "https://www.youtube.com/channel/UCV9AeIYOw3CiRO9irw5lJ-g" target="_blank"><img src="Images/YouTube Logo.png" width="30" height="30"></a></li>
-            <li><a href= "https://www.facebook.com/leo.blam.31/" target="_blank"><img src="Images/Facebook Logo.png" width="30" height="30"></a></li>
-            </ul>
-
-        </div>
-
-        </footer>
-    </body>
-</html>
+ {% endblock %}
