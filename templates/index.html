@@ -9,6 +9,15 @@
 
 {% endblock %}
 {% block body %}
+        <h1>hello there, {{ name }}</h1>
+        {% for i in mylist %}
+            {% if i == 3 %}
+                <b><h1>{{ i  }} is 3</h1></b>
+            {% else %}
+                <h1>{{ i  }}</h1>
+            {% endif %}
+
+        {% endfor %}
 
         <section class="content-section container">
             <h2 class="section-header">What is this?</h2>
@@ -38,7 +47,7 @@
             <span class="items">
                 <div class="item item-1">
                     <h6 class="title-item">Movies</h6>  
-                   <a class="title-img-link" href="{{ url_for('movies') }}"><img class="title-img" src="static/Images/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg"/> </a>                
+                   <a class="title-img-link" href="{{ url_for('index', name='Eliyahu') }}"><img class="title-img" src="static/Images/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg"/> </a>                
                 </div>
                 <div class="item item-2">
                     <h6 class="title-item">Series</h6>   

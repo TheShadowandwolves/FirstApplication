@@ -2,7 +2,7 @@
 {% block head %}
 <!--==Title==================================-->
 
-<!-- <title>Movie Name - MHD</title> --> 
+<title>{{movie.title}}</title> 
 
 <!--Stylesheet(CSS)==========================-->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/movieLibrary.css') }}"/>
@@ -22,13 +22,14 @@
 {% endblock %}
 
 {% block body %}
+<h1 class="Titlename Titlename-large">{{movie.title}}</h1>
     <!--==Movie-Banner=========================================-->
     <section class="movie-banner">
         <!--==img==================================-->
         <div class="m-banner-img">
-            {% block backgroundimage %}
-            <!-- <img alt="" src="#"> -->
-            {% endblock %}
+            
+            <img alt="" src="#">
+           
         </div>
         <!--content================================-->
         <div class="banner-container">
@@ -38,33 +39,35 @@
                 <div class="title-top">
                 <!--title----->
                 <div class="movie-title">
-                    {% block movieTitle %}
-                    <!-- <h1>Movie Name</h1> -->
-                    {% endblock %}
+                   
+                    <h1>{{ movie.title }}</h1>
+                    
                 </div>
                 <!--more-about-movie-->
                 <div class="more-about-movie">
-                    {% block quality %}
-                    <!-- <span class="quality">Full HD</span> -->
-                    {% endblock %}
+                   
+                    <span class="quality">{{movie.quality}}</span>
+                    
                     <div class="rating">
-                        {% block rating %}
-                        <!-- Rating <img alt="imbd" src="images/IMDb-icon.png"> -->
-                        {% endblock %}
+                        
+                       {{movie.rating}} <img alt="imbd" src="{{ url_for('static', filename='Images/IMDb-icon.png') }}">
+                       
                     </div>
-                    {% block publishdate %}
-                    <!-- <span>Publish Date</span> -->
-                    {% endblock %}
-                    {% block movieTime %}
-                    <!-- <span>Movie Time</span> -->
-                    {% endblock %}
+                 
+                    <span>{{movie.publishdate}}</span> 
+                 
+                    <span>{{movie.length}}</span>
+                   
                 </div>
                 <!--language--------->
                 <div class="language">
-                    {% block movieLanguage %}
-                    <!-- <span>Trailer Language</span>
-                    <span>...</span> -->
-                    {% endblock %}
+                   
+                <span>Trailer Language</span>
+                {% for i in movie.language %}
+                <span>{{ i }}</span>
+                {% endfor %}
+                <span>...</span>
+                   
                 </div>
                 </div>
                 <!--Title-botttom==========================-->
@@ -72,9 +75,10 @@
                     <!--category------->
                     <div class="category">
                         <strong>Category</strong><br/>
-                        {% block category %}
-                        <!-- <a href="#">category1</a>,<a href="#">category2</a>,<a href="#">category3</a> -->
-                        {% endblock %}
+                        {% for i in movie.category %}
+                        <a href="#">{{ i }}</a>
+                        {% endfor %}
+                        
                     </div>
                     <!--trailer-btn---->
                  <!----  <a href="#" class="watch-btn">Watch Trailer</a>-->
@@ -96,7 +100,7 @@
                 </a>
                 <!--movie------->
                 <div class="play-movie">
-                   <a href="#" class="watch-btn"></a>
+                   <a href="" class="watch-btn"></a>
                 </div>
             </div>
         </div>
@@ -104,19 +108,19 @@
     <!--Banner-end------------->
     <!--details=====================================-->
     <section class="movie-details">
-        {% block movieDesc %}
-        <!-- <strong>Movie Title</strong>
-        <p>Here will be the description</p> -->
-        {% endblock %}
+      
+        <strong>{{ movie.title }}</strong>
+        <p> {{ movie.description }}</p>
+     
     </section>
     <!--==ScreenShots===============================-->
     <section class="screenshots">
         <strong>ScreenShots</strong>
         <!--screenshots-container----------->
         <div class="screen-s-container">
-            {% block screenImg %}
-            <!-- <img alt="" src="#"> -->
-            {% endblock %}
+            {% for i in movie.screenshots %}
+            <img alt="" src="{{ i }}" />
+            {% endfor %}
         </div>
     </section>
 
