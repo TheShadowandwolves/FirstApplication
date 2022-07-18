@@ -1,12 +1,14 @@
 from email.mime import image
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, abort
 
 app = Flask(__name__)
 
-class movie:
-    def __init__(self, title, length):
+class File:
+    def __init__(self, title, length, type):
         self.title = title
         self.length = length
+        self.type = type
+    type = "movie"
     title = "amb"
     qualitiy = "1080p"
     rating = 5
@@ -62,21 +64,27 @@ def terms():
 
 @app.route("/eachMovie/<movietitle>")
 def eachMovie(movietitle):
-    movie.title = movietitle
-    return render_template("EachMovie.html", movie = movie)
+    File.title = movietitle
+    return render_template("EachMovie.html", movie = File)
 
 @app.route("/categories/<category>")
 def categories(category):
-    p1 = movie("as", 50)
+    if category not in choice:
+       return render_template("404Error.html")
+        
+    p1 = File("as", 50, "movie")
     p1.category = ["horror" , "comedy"]
-    p2 = movie("aas", 50)
+    p2 = File("aas", 50, "movie")
     p2.category = ["horror" , "comedy"]
-    p3 = movie("abs", 50)
+    p3 = File("abs", 50, "movie")
     p3.category = ["horror" , "comedy"]
-    movieindex = [p1,p2,p3]
-    
-    return render_template("categories.html", movieindex = movieindex, category = category)
-
-
-
+    index = [p1,p2,p3]
+    if index[0].type == "movie":
+        return render_template("categories.html", index = index, category = category, type = "movie")
+    elif index[0].type == "book":
+        return render_template("categories.html", index = index, category = category, type = "book")
+    elif index[0].type == "serie":
+        return render_template("categories.html", index = index, category = category, type = "serie")
+    else: 
+        return "error"
 app.run(debug=True)

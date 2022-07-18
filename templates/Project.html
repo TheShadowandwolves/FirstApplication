@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> My personal Project </title>
-  <link rel="stylesheet" href="styles.css"/>
-  
-  <link rel="shortcut icon" href="Images/The inner reviewers logo wi text 2.png"/>
-  <script src="script.js" defer></script>
-  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-</head>
-<header class="main-header">
-  <nav class="nav main-nav">
-      <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="Project.html">PROJECT</a></li>
-          <li><a href="ABOUT.html">ABOUT</a></li>
-          <li><a href="login.html">LOGIN</a></li>
-          <li><a href="Terms&Conditions.html">Terms&Conditions</a></li>
-      </ul>
+{% extends 'base.html' %}
+{% block head %}
+<title> My personal Project </title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+<script src="{{ url_for('static', filename='JS/script.js') }}" ></script>
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+{% endblock %}
 
-  </nav>
-  <h3 class="Titlename Titlename-large">This is my personal Project</h3>
-  <form action="" class="search-box">
-    <!--input-->
-      <input type="text" name="search" placeholder="Search" class="search-input" required/>
-       <button type="submit">
-      <i class="fas fa-search"></i>
-    </button>
-  </form>
-</header>
-<body>
+{% block titlePage %}
+<h1 class="Titlename Titlename-large">All Movies</h1>
+{% endblock %}
+
+{% block body %}
     <br>
 
     <br><br>
@@ -65,7 +44,7 @@
     </div>
   </div>
   <div class="morebutton">
-  <a class="more" href="Movies.html">More</a>
+  <a class="more" href="{{ url_for('movies') ,'all'}}">More</a>
 </div>
   <br>
   <div class="row">
@@ -97,7 +76,7 @@
     </div>
   </div>
   <div class="morebutton">
-  <a class="more"  href="Series.html">More</a>
+  <a class="more"  href="{{ url_for('series') }}">More</a>
   </div>
   <br>
   <div class="row">
@@ -129,20 +108,8 @@
     </div>
   </div>
   <div class="morebutton">
-  <a class="more" href="Books.html">More</a>
+  <a class="more" href="{{ url_for('books') }}">More</a>
   </div>
 </div>
-<footer class="main-footer">
-  <div class="container main-footer-container">
-      <a class="Titlename logolink" href="index.html">The Inner reviewers</a>
-  <ul class="nav footer-nav">
-      <li>
-          <a href="https://open.spotify.com/user/r3tkxwdgfyujecn4ueta24hqr" target="_blank"><img src="Images/Spotify Logo.png" width="30" height="30"></a></li>
-      <li><a href="https://www.instagram.com/theshadowandwolves/" target="_blank"><img src="Images/insta.png" width="30" height="30"></a></li>
-      <li><a href= "https://www.youtube.com/channel/UCV9AeIYOw3CiRO9irw5lJ-g" target="_blank"><img src="Images/YouTube Logo.png" width="30" height="30"></a></li>
-      <li><a href= "https://www.facebook.com/leo.blam.31/" target="_blank"><img src="Images/Facebook Logo.png" width="30" height="30"></a></li>
-  </ul>
-</div>
-</footer>
-</body>
-</html>
+
+{% endblock %}

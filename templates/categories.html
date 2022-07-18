@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block head %}
-<title>{{ category }} Movies</title>
+<title>{{ category }} {{ type }}</title>
 <meta name="description" content="Here you find all movies, you can sign in to mark of what you watched or want to watch for you later">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/movieLibrary.css') }}" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -18,18 +18,19 @@
 {% endblock %}
 
 {% block body %}
+
         <section id="main-slider">
-            {% for i in movieindex %}
-                {% if i.category == category %}
+            {% for i in index %}
+                {% if category in i.category %}
             
                     <div class="main-slider-box">
                         <!--overlayer-->
-                        <a href="{{ url_for('eachMovie', i.title) }}" class="main-slider-overlay">
+                        <a href="{{ url_for('eachMovie', movietitle = i.title) }}" class="main-slider-overlay">
                             <i class="fas fa-play"></i>
                         </a>
                         <!--image for movies, TODO: API for automatic pic set-->
                         <div class="main-slider-img">
-                            <img src="{{ url_for('eachMovie', i.image) }}" alt="Poster"/>
+                            <img src="#"alt="Poster"/>
                         </div>
                         <!--quality or anything else... no css-->
                         <div class="main-slider-text">
