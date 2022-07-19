@@ -3,6 +3,12 @@ from flask import Flask, render_template, url_for, request, abort
 
 app = Flask(__name__)
 
+#response = request.get("https://imdb-api.com/en/API/IMDbList/k_zqtxyfc4/ls004285275")
+#content = response.json()
+
+
+
+
 class File:
     def __init__(self, title, length, type):
         self.title = title
