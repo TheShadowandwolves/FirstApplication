@@ -1,10 +1,60 @@
 {% extends 'base.html' %}
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
  <title>Books</title>
+ 
+<script src="{{ url_for('static', filename='JS/script.js') }}" defer></script>
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block titlePage %}
-<h1 class="Titlename Titlename-large">All Books</h1>
+<h1 class="Titlename Titlename-large">Books</h1>
 {% endblock %}
 
+{% block body %}
+    <br>
+    {% for i in category %}
+
+        <br><br>
+        <div class="colomn">
+        <div class="row">
+        <div class="header">
+        <h3 class="title">{{ i }} </h3>
+        <div class="progress-bar"></div>
+        </div>
+        <div class="container">
+        <button class="handle left-handle">
+            <div class="text">&#8249;</div>
+        </button>
+        <div class="slider">
+            {% for j in book %}
+                {% if i not in j.category %}
+                <img src="https://via.placeholder.com/210/00FF00?text={{j.title}}">
+
+                <!-- <img src="https://via.placeholder.com/220/00FF00?text=2">
+                <img src="https://via.placeholder.com/230/00FF00?text=3">
+                <img src="https://via.placeholder.com/240/00FF00?text=4">
+                <img src="https://via.placeholder.com/250/00FF00?text=5">
+                <img src="https://via.placeholder.com/260/00FF00?text=6">
+                <img src="https://via.placeholder.com/270/00FF00?text=7">
+                <img src="https://via.placeholder.com/280/00FF00?text=8">
+                <img src="https://via.placeholder.com/250/00FF00?text=9">
+                <img src="https://via.placeholder.com/260/00FF00?text=10">
+                <img src="https://via.placeholder.com/270/00FF00?text=11">
+                <img src="https://via.placeholder.com/280/00FF00?text=12"> -->
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button class="handle right-handle">
+            <div class="text">&#8250;</div>
+        </button>
+        </div>
+        </div>
+        <div class="morebutton">
+        <a class="more" href="{{ url_for('categories' , category = i ) }}">More</a>
+        </div>
+        <br>
+
+    {% endfor %}
+
+{% endblock %}

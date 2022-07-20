@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block head %}
 <title>The Inner reviewers</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
 {% endblock %}
 
 {% block titlePage %}
@@ -21,7 +22,7 @@
 
         <section class="content-section container">
             <h2 class="section-header">What is this?</h2>
-                <img class="about-band-image" src="static/Images/The inner reviewers logo wo text 2-2.png"/>
+                <img class="about-band-image" src="{{ url_for('static', filename='Images/The inner reviewers logo wo text 2-2.png') }}"/>
                 <p class="p-main">Hi to everyone who is entering this website. <br>
                 This website is a personal project of mine. And is currently in progress! <br>
                 In this project I will list all movie, books, series, games etc. titles on display. The user while loged in, will be able 

@@ -1,4 +1,4 @@
-*{
+body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,13 +8,14 @@
 .page404{
     padding: 40px 0;
     font-family: 'Poppins';
-    background: url("Images/sigmund-By-tZImt0Ms-unsplash.jpg");
+    background: url("/static/Images/sigmund-By-tZImt0Ms-unsplash.jpg");
+    /*background: url("{{ url_for('static', filename='Images/sigmund-By-tZImt0Ms-unsplash.jpg') }}");*/
 }
 .page404 img{
     width: 100%;
 }
 .four_zero_four_bg{
-    background: url("Images/dribbble_1.gif");
+    background: url('/static/Images/dribbble_1.gif');
     /*https://tenor.com/view/error-gif-8925016*/
     background-repeat: no-repeat;
     background-position: center;
@@ -34,7 +35,7 @@ h1{
     font-weight: bold;
 }
 
-a{
+.aa{
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -47,7 +48,7 @@ a{
 .content_box_404{
     margin-top: -50px;
 }
-a:hover{
+.aa:hover{
     border-radius: 9%;
     text-decoration: none;
     color: white;
@@ -58,7 +59,8 @@ a:hover{
     font-weight: bold;
 }
 .tenor{
-    background: url("Images/error.gif");
+   background: url('/static/Images/error.gif');
+   /* background:"{{ url_for('static', filename='/Images/error.gif') }}";*/
     height: 200px;
     background-repeat: no-repeat;
     background-position: center;
