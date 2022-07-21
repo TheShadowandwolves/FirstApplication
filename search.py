@@ -1,9 +1,8 @@
 from email.mime import image
 import string
 from flask import Flask, render_template, url_for, request, abort
-from imdb import IMDb
-
-ia = IMDb()
+import imdb
+ia = imdb.Cinemagoer()
 app = Flask(__name__)
 
 # gets the movies from the imdb api with the given name
@@ -15,7 +14,7 @@ def data(name):
         return "error"
 # gets the movies from the imdb api with the given id
 @app.route('/data/<id>', methods=['GET', 'POST'])
-def data(id):
+def data2(id):
     if request.method == 'POST':
         return getFoundMoviesbyID(id)
     else:
@@ -41,8 +40,16 @@ def getFoundMoviesbyID(id):
 # gets the movies from the imdb api with the given name
 def getFoundMoviesbyName(user_movie_input):
     movies = ia.search_movie(user_movie_input)
+    for movie in movies:
+        ia.update(movie, info=[])
+
     return movies
 
+def getBestMovie():
+    top = ia.get_top250_movies()
+    for movie in top:
+        ia.update(movie, info=[])
+    return top
 
 def getMoviewithID(id):
     movie = ia.get_movie(id)

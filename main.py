@@ -1,7 +1,7 @@
 from email.mime import image
-from flask import Flask, render_template, url_for, request, abort
-import search
-
+from flask import Flask, render_template, url_for, request, abort, redirect, flash
+from search import getBestMovie, getFoundMoviesbyName, getFoundMoviesbyID, getMoviewithID, getCategory, getRating, getlength, user_input, data
+from registration import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 
@@ -10,17 +10,20 @@ app = Flask(__name__)
 
 
 #search.getMovie("pirates")
-movie = search.data()
+#movie = getMoviewithID(id)
+
+app.config['SECRET_KEY'] = 'mysecret1234'
+
 class Data:
     def __init__(self, movie):
-        self.title = search.getTitle(movie)
-        self.length = search.getlength(movie)
-        self.category = search.getCategory(movie)
-        self.rating = search.getRating(movie)
-        self.publishDate = search.getDate(movie)
-        self.language = search.getLanguage(movie)
-        self.description = search.getDesc(movie)
-        self.image = search.getImage(movie)
+        self.title = movie['title']
+        self.length = movie['runtime']
+        self.category = movie['genres']
+        self.rating = movie['rating']
+        self.publishDate = movie['year']
+        self.language = movie['languages']
+        self.description = movie['plot']
+        self.image = movie['poster']
 
 class File:
     def __init__(self, title, length, type, cat):
@@ -29,6 +32,7 @@ class File:
         self.type = type
         self.category = cat
         
+        
     type = "movie"
     title = "amb"
     qualitiy = "1080p"
@@ -36,16 +40,16 @@ class File:
     publishdate = 2020
     length = 60
     language = ["german", "english", "french"]
-    category = ["horror", "comedy"]
+   
     description = "none"
     screenshots = []
     image = "none"
 
 choice = ["action", "horror", "comedy", "drama", "kids", "fantasy","other"]
 
-def getMovieData(movie):
-    data = movie
-    return data
+# def getMovieData(movie):
+#     data = movie
+#     return data
 
 
 @app.route("/home/<name>")
@@ -57,12 +61,13 @@ def index(name):
 
 @app.route("/books")
 def books():
-    book = [{File("shadowhunter", 555, "book",["horror", "fantasy"])},{File("lol", 33, "book", ["horror", "comedy"])}]
+    book = [File("shadowhunter", 555, "book",["horror", "fantasy"]),File("lol", 33, "book", ["horror", "comedy"])]
     return render_template("Books.html", category = choice, book = book)
 
 @app.route("/movies")
 def movies():
-    return render_template("Movies.html")
+    movies = getBestMovie()
+    return render_template("Movies.html", movies = movies)
 
 @app.route("/series")
 def series():
@@ -74,7 +79,16 @@ def project():
 
 @app.route("/about")
 def about():
-    return render_template("About.html")
+    form = LoginForm()
+    return render_template("About.html", title = 'Login', form = form)
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('index', name = form.username._value()))
+    return render_template("register.html", title='Register', form=form)
 
 @app.route("/login")
 def login():

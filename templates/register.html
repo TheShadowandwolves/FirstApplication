@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Login Formular</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    </head>
+    <body>
+        <br>
+        <span>
+        <h3 class="title">Welcome to the Register section</h3>
+        <button class="HOME">
+             <a href="{{ url_for('index' , name = 'noname') }}">HOME</a>
+        </button>
+        
+        </span>
+        <br><br>
+        <form class="box" action="" method="POST">
+            {{ form.csrf_token }}
+            <h1>Sign up</h1>
+            <fieldset>
+                <!---username-->
+                {{form.username.label(class='form-control-label') }}
+
+                {% if form.username.errors %}
+                {{form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                           <span>{{ error }}</span> 
+                        {% endfor %}
+                    </div>
+                {% else %}
+                {{form.username(class='form-control form-control-lg') }}
+                {% endif %}
+                <!---->
+
+               
+                    <!--email-->
+                {{form.email.label(class='form-control-label') }}
+                {% if form.email.errors %}
+                {{form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                           <span>{{ error }}</span> 
+                        {% endfor %}
+                    </div>
+                {% else %}
+                {{form.email(class='form-control form-control-lg') }}
+                {% endif %}
+                
+                <!--password-->
+                {{form.password.label(class='form-control-label') }}
+                {% if form.password.errors %}
+                {{form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                           <span>{{ error }}</span> 
+                        {% endfor %}
+                    </div>
+                {% else %}
+                {{form.password(class='form-control form-control-lg') }}
+                {% endif %}
+                <!--password confirm-->
+                {{form.password_confirm.label(class='form-control-label') }}
+                {% if form.password_confirm.errors %}
+                {{form.password_confirm(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password_confirm.errors %}
+                           <span>{{ error }}</span> 
+                        {% endfor %}
+                    </div>
+                {% else %}
+                {{form.password_confirm(class='form-control form-control-lg') }}
+                {% endif %}
+
+                {{ form.submit(class='btn btn-outline-info') }}
+             </fieldset>
+             <div class="question">
+                <p> Already have an account? <a class="question_link" href="{{ url_for('login') }}">Login</a></p>
+            </div>
+        </form>
+        
+    </body>
+</html>

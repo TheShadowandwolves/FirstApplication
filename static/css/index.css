@@ -4,8 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Libre+Bodoni:wght@500&family=Oswald&family=Poppins:wght@300&family=Radio+Canada:wght@300&display=swap');
 @font-face {
     font-family: "Booter - Zero Zero";
-    src: url("static/Fonts/Booter\ -\ Zero\ Zero.woff") format("woff"),
-        url("static/Fonts/Booter\ -\ Zero\ Zero.woff2") format("woff2") ;
+    src: url("/static/Fonts/Booter - Zero Zero.woff") format("woff"),
+        url("/static/Fonts/Booter - Zero Zero.woff2") format("woff2") ;
         font-weight: normal;
         font-style: normal;
 }

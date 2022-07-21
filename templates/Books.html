@@ -28,7 +28,7 @@
         </button>
         <div class="slider">
             {% for j in book %}
-                {% if i not in j.category %}
+                {% if i in j.category %}
                 <img src="https://via.placeholder.com/210/00FF00?text={{j.title}}">
 
                 <!-- <img src="https://via.placeholder.com/220/00FF00?text=2">

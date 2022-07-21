@@ -1,70 +1,60 @@
 {% extends 'base.html' %}
 {% block head %}
-<title> {{ category }} Movies</title>
-<meta name="description" content="Here you find all movies, you can sign in to mark of what you watched or want to watch for you later">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/movieLibrary.css') }}" />
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<!--==Import-Monoton-Font====================-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-<!--==Using-Font-Awesome======================-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+ <title>Movies</title>
+ 
+<script src="{{ url_for('static', filename='JS/script.js') }}" defer></script>
 <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {% endblock %}
 
 {% block titlePage %}
-<h1 class="Titlename Titlename-large">{{ category }}</h1>
+<h1 class="Titlename Titlename-large">Movies</h1>
 {% endblock %}
 
 {% block body %}
-        <section id="main-slider">
+    <br>
+    {% for i in category %}
 
-            <div class="main-slider-box">
-                <!--overlayer-->
-                <a href="{{ url_for('eachMovie', index.title) }}"  class="main-slider-overlay">
-                    <i class="fas fa-play"></i>
-                </a>
-                <!--image for movies, TODO: API for automatic pic set-->
-                <div class="main-slider-img">
-                    <img src="#" alt="Poster"/>
-                </div>
-                <!--quality or anything else... no css-->
-                <div class="main-slider-text">
-                    <!--missing quality-->
-                    <span class="quality"></span>
-                    <!--bottom text-->
-                    <div class="bottom-text">
-                        <!--name-->
-                        <div class="movie-name">
-                        <!--need to change to automatic change for each movie-->
-                        <span>Year</span>
-                        <strong>Movie Name</strong>
-                    </div>
-                    <div class="category-rating">
-                        <!--category, needs automatic change-->
-                        <div class="category">
-                            <a href="#">category1</a>,<a href="#">category2</a><a href="#">category3</a>
-                        </div>
-                        <!--rating, same-->
-                        <div class="rating">
-                           Rating <img src="Images/IMDb-icon.png" alt="imbd"/> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-
-            </div>
-          
-
-        </section>
-        <!--button for reviewing more, need to be set in backend-->
-        <div class="btn-container">
-            <input type="button" value="VIEW MORE"/>
-            <div class="wdth"></div>
-            <div class="wdth1"></div>
+        <br><br>
+        <div class="colomn">
+        <div class="row">
+        <div class="header">
+        <h3 class="title">{{ i }} </h3>
+        <div class="progress-bar"></div>
         </div>
- {% endblock %}
+        <div class="container">
+        <button class="handle left-handle">
+            <div class="text">&#8249;</div>
+        </button>
+        <div class="slider">
+            {% for j in movies %}
+                {% if i in j.category %}
+                <img src="https://via.placeholder.com/210/00FF00?text={{j.title}}">
+
+                <!-- <img src="https://via.placeholder.com/220/00FF00?text=2">
+                <img src="https://via.placeholder.com/230/00FF00?text=3">
+                <img src="https://via.placeholder.com/240/00FF00?text=4">
+                <img src="https://via.placeholder.com/250/00FF00?text=5">
+                <img src="https://via.placeholder.com/260/00FF00?text=6">
+                <img src="https://via.placeholder.com/270/00FF00?text=7">
+                <img src="https://via.placeholder.com/280/00FF00?text=8">
+                <img src="https://via.placeholder.com/250/00FF00?text=9">
+                <img src="https://via.placeholder.com/260/00FF00?text=10">
+                <img src="https://via.placeholder.com/270/00FF00?text=11">
+                <img src="https://via.placeholder.com/280/00FF00?text=12"> -->
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button class="handle right-handle">
+            <div class="text">&#8250;</div>
+        </button>
+        </div>
+        </div>
+        <div class="morebutton">
+        <a class="more" href="{{ url_for('categories' , category = i ) }}">More</a>
+        </div>
+        <br>
+
+    {% endfor %}
+
+{% endblock %}

@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>Login Formular</title>
-        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     </head>
     <body>
         <br>
         <span>
         <h3 class="title">Welcome to the Login section</h3>
         <button class="HOME">
-             <a href="index.html">HOME</a>
+             <a href="{{ url_for('index', name = 'noname') }}">HOME</a>
         </button>
         
         </span>
