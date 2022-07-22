@@ -24,9 +24,9 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
-    post = db.relationship('Post', backref='author', lazy=True)
-    # wish_list = db.relationship('Wish_list', backref='author', lazy=True)
-    # watched_list = db.relationship('Watched_list', backref='author', lazy=True)
+    posts = db.relationship('Post', backref='author', lazy=True)
+    wish_list = db.relationship('Emovie', lazy=True)
+    watched_list = db.relationship('Emovie', lazy=True)
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
@@ -39,12 +39,11 @@ class Post(db.Model):
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
 
-# class Movie(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     movie_Id = db.Column(db.String(10), nullable=False, unique = True)
-
-#     def __repr__(self):
-#         return f"MovieList('{self.movie_Id}')"
+class Emovie(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    movie_Id = db.Column(db.String(10), nullable=False, unique = True)
+    def __repr__(self):
+        return f"MovieList('{self.movie_Id}')"
 
 class Data:
     def __init__(self, movie):
