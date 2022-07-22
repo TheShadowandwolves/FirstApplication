@@ -22,33 +22,60 @@
         <h3 class="title">{{ i }} </h3>
         <div class="progress-bar"></div>
         </div>
-        <div class="container">
-        <button class="handle left-handle">
-            <div class="text">&#8249;</div>
-        </button>
-        <div class="slider">
-            {% for j in book %}
-                {% if i in j.category %}
-                <img src="https://via.placeholder.com/210/00FF00?text={{j.title}}">
+            <div class="container">
+                <button class="handle left-handle">
+                    <div class="text">&#8249;</div>
+                </button>
+                <div class="slider">
+                    {% for j in book %}
+                        {% if i in j.category %}
+                        <!-- <img class="test" src="https://via.placeholder.com/210/00FF00?text={{j.title}}"> -->
 
-                <!-- <img src="https://via.placeholder.com/220/00FF00?text=2">
-                <img src="https://via.placeholder.com/230/00FF00?text=3">
-                <img src="https://via.placeholder.com/240/00FF00?text=4">
-                <img src="https://via.placeholder.com/250/00FF00?text=5">
-                <img src="https://via.placeholder.com/260/00FF00?text=6">
-                <img src="https://via.placeholder.com/270/00FF00?text=7">
-                <img src="https://via.placeholder.com/280/00FF00?text=8">
-                <img src="https://via.placeholder.com/250/00FF00?text=9">
-                <img src="https://via.placeholder.com/260/00FF00?text=10">
-                <img src="https://via.placeholder.com/270/00FF00?text=11">
-                <img src="https://via.placeholder.com/280/00FF00?text=12"> -->
-                {% endif %}
-            {% endfor %}
-        </div>
-        <button class="handle right-handle">
-            <div class="text">&#8250;</div>
-        </button>
-        </div>
+                        <div class="placeholder">
+                            <a href="{{ url_for('eachMovie', movietitle = j.title) }}" class="main-slider-overlay">
+                                <i class="fas fa-play"></i>
+                            </a>
+                            <!--image for movies, TODO: API for automatic pic set-->
+                            <div class="main-slider-img">
+                                <img class="slider-img"  src="{{url_for('static', filename='/Images/denise-chan-pXmbsF70ulM-unsplash.jpg') }} "alt="Poster"/>
+                            </div>
+                                <!--bottom text-->
+                                <div class="bottom-text">
+                                    <!--name-->
+                                    <div class="movie-name">
+                                        <!--need to change to automatic change for each movie-->
+                                        <strong>  {{ j.title }}</strong>
+                                        <br>
+                                        <span>{{ j.publishdate }}</span>
+                                    
+                                    </div>
+
+                                    <!--rating, same-->
+                                    <div class="rating">
+                                        {{ j.rating }} <img class="rating-img" src="{{ url_for('static', filename='/Images/IMDb-icon.png') }}" ) }} alt="imbd"/> 
+                                    </div>
+                                </div>
+                        </div>
+
+
+                        <!-- <img src="https://via.placeholder.com/220/00FF00?text=2">
+                        <img src="https://via.placeholder.com/230/00FF00?text=3">
+                        <img src="https://via.placeholder.com/240/00FF00?text=4">
+                        <img src="https://via.placeholder.com/250/00FF00?text=5">
+                        <img src="https://via.placeholder.com/260/00FF00?text=6">
+                        <img src="https://via.placeholder.com/270/00FF00?text=7">
+                        <img src="https://via.placeholder.com/280/00FF00?text=8">
+                        <img src="https://via.placeholder.com/250/00FF00?text=9">
+                        <img src="https://via.placeholder.com/260/00FF00?text=10">
+                        <img src="https://via.placeholder.com/270/00FF00?text=11">
+                        <img src="https://via.placeholder.com/280/00FF00?text=12"> -->
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <button class="handle right-handle">
+                    <div class="text">&#8250;</div>
+                </button>
+            </div>
         </div>
         <div class="morebutton">
         <a class="more" href="{{ url_for('categories' , category = i ) }}">More</a>

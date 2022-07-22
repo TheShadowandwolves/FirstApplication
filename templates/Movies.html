@@ -31,6 +31,31 @@
                 {% if i in j.category %}
                 <img src="https://via.placeholder.com/210/00FF00?text={{j.title}}">
 
+                <div class="placeholder">
+                    <a href="{{ url_for('eachMovie', movietitle = i.title) }}" class="main-slider-overlay">
+                        <i class="fas fa-play"></i>
+                    </a>
+                    <!--image for movies, TODO: API for automatic pic set-->
+                    <div class="main-slider-img">
+                        <img src="#"alt="Poster"/>
+                    </div>
+                        <!--bottom text-->
+                        <div class="bottom-text">
+                            <!--name-->
+                            <div class="movie-name">
+                            <!--need to change to automatic change for each movie-->
+                            <span>{{ i.publishdate }}</span>
+                            <strong>{{ i.title }}</strong>
+                        </div>
+
+                            <!--rating, same-->
+                            <div class="rating">
+                                 {{ i.rating }} <img src="{{ url_for('static', filename='/Images/IMDb-icon.png') }}" ) }} alt="imbd"/> 
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <!-- <img src="https://via.placeholder.com/220/00FF00?text=2">
                 <img src="https://via.placeholder.com/230/00FF00?text=3">
                 <img src="https://via.placeholder.com/240/00FF00?text=4">

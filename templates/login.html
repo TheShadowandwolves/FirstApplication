@@ -15,12 +15,56 @@
         
         </span>
         <br><br>
-        <form class="box" action="login.html" method="post">
-            <h1>Login</h1>
-            <input type="text" name="" placeholder="Username">
-            <input type="password" name="" placeholder="Password">
-            <input type="submit" name="" value="Login">
+        <form class="box" action="" method="POST">
+            {{ form.csrf_token }}
+            <h1>Log in</h1>
+            <fieldset>
+                <!---username-->
+                {{form.username.label(class='form-control-label') }}
 
+                {% if form.username.errors %}
+                {{form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                           <span>{{ error }}</span> 
+                        {% endfor %}
+                    </div>
+                {% else %}
+                {{form.username(class='form-control form-control-lg') }}
+                {% endif %}
+                <!---->
+
+                <!--password-->
+                {{form.password.label(class='form-control-label') }}
+                {% if form.password.errors %}
+                {{form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                           <span>{{ error }}</span> 
+                        {% endfor %}
+                    </div>
+                {% else %}
+                {{form.password(class='form-control form-control-lg') }}
+                {% endif %}
+
+                    <div class="form-check">
+                       
+                        {{form.remember_me(class='form-check-input') }}
+                        {{form.remember_me.label(class='form-check-label') }}
+                    </div>
+
+                
+             </fieldset>
+             <div class="form-group">
+                {{ form.submit(class='btn btn-outline-info') }}
+             </div>
+             <small class="text-muted ml-2">
+                <a href="#">Forgot Password?</a>
+             </small>
+             <div class="question">
+                <p> Don't have an account? <a class="question_link" href="{{ url_for('register') }}">Sign up</a></p>
+            </div>
         </form>
+        
     </body>
 </html>
